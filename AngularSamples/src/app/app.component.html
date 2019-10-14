@@ -1,0 +1,33 @@
+<p><b>{{title}}</b></p>
+<app-component1></app-component1>
+<hello name="{{ name }}"></hello>
+<p *ngIf="accountlist.length > 1">There are many account list using ngIF &nbsp;<button type="button" (click)="toggle()" id="tog">{{buttonName}}</button></p>
+<ng-container *ngIf="show">
+  <ul>
+  <li *ngFor="let list of accountlist">
+    {{list.Accid}} , {{list.AccName}}
+
+  </li>
+  </ul>
+  </ng-container>
+  <p><b>Two way binding - showing content from textbox into label</b></p>
+   <input type="text" [(ngModel)]="setTwowaybind" />
+   {{setTwowaybind}}
+<br><br>
+<p><b>Display date and time using interface</b></p>
+   {{dateTimedetails}}
+   <br>
+<p><b>Display day of the date 1/7 using enum and generics</b></p>
+<input type="text" [(ngModel)]="showday_txt" />
+<button type="button" (click)="getday(showday_txt)">Get day</button><br>
+
+<b>{{showday}}</b>
+<br><br>
+<span><b>Select Animals using oneway binding</b></span><br>
+<div>
+<select (change)="getImg($event.target.value)">
+    <option value="0">-- select animal --</option>
+    <option *ngFor="let animal of animals" value={{animal}}>{{animal}}</option>
+</select>
+</div>
+<img [src]="imageurl" height="200" *ngIf="imageurl">
